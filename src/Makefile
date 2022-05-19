@@ -17,7 +17,7 @@ ${TARGET}_lexer.cpp:  ${TARGET}.l
 	flex -o  $@ $<
 
 ${TARGET}_parser.cpp: ${TARGET}.y ast.h
-	bison --defines=tokens.h -o  $@ $<
+	bison --defines=tokens.h -Wcounterexamples -o  $@ $<
 
 ${TARGET}_parser.o: ${TARGET}_parser.cpp
 	g++ -std=c++11 -g -c -o  $@ $<
